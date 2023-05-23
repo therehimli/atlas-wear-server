@@ -3,10 +3,14 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
 import routes from './routes/routes.js'
 
 const app = express()
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 app.use(
   cors({
@@ -16,6 +20,7 @@ app.use(
 )
 app.use(express.json())
 app.use(cookieParser())
+app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use('/', routes)
 dotenv.config()
 

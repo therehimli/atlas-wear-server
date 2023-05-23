@@ -42,10 +42,12 @@ export const loginUser = async (request, response) => {
           }
         )
       } else {
-        response.status(422).json('wrong password')
+        response
+          .status(422)
+          .json('Email address/password do not match any existing accounts.')
       }
     } else {
-      response.status(403).json('not found')
+      response.status(403).json('The account could not be found ')
     }
   } catch (error) {
     response.status(422).json(error)

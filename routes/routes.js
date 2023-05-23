@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { allProduct, oneProduct } from '../controllers/products.js'
+import { allProduct, oneProduct, photoLink } from '../controllers/products.js'
 import {
   logOutUser,
   loginUser,
@@ -11,6 +11,7 @@ const router = Router()
 
 router.get('/products', allProduct)
 router.get('/products/:id', oneProduct)
+router.post('/photo-link', photoLink)
 
 router.post('/register', registerUser)
 router.post('/login', loginUser)
