@@ -20,10 +20,20 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  contactNumber: {
+    type: Number,
+    required: true,
+  },
+  contactEmail: {
+    type: String,
+    required: true,
+  },
   photos: [String],
   sizes: [String],
   colors: [String],
   description: String,
+  state: String,
+  delivery: String,
 })
 
 const Product = mongoose.model('Product', productSchema)

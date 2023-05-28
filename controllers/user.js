@@ -47,7 +47,7 @@ export const loginUser = async (request, response) => {
           .json('Email address/password do not match any existing accounts.')
       }
     } else {
-      response.status(403).json('The account could not be found ')
+      response.status(403).json('The account not found ')
     }
   } catch (error) {
     response.status(422).json(error)
