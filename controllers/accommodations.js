@@ -20,6 +20,7 @@ export const createAccommodation = (request, response) => {
     contactEmail,
     state,
     delivery,
+    city,
   } = request.body
 
   try {
@@ -38,6 +39,7 @@ export const createAccommodation = (request, response) => {
         contactNumber,
         contactEmail,
         state,
+        city,
         delivery,
       })
       response.json(productsDoc)
@@ -82,6 +84,7 @@ export const editAccommodation = async (request, response) => {
     contactEmail,
     state,
     delivery,
+    city,
   } = request.body
 
   try {
@@ -102,6 +105,7 @@ export const editAccommodation = async (request, response) => {
           contactNumber,
           contactEmail,
           state,
+          city,
           delivery,
         })
         await productDoc.save()

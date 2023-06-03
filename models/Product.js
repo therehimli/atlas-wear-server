@@ -19,6 +19,7 @@ const productSchema = new Schema(
     state: String,
     delivery: String,
     favorite: { type: Boolean, default: false },
+    city: String,
   },
   {
     timestamps: true,
