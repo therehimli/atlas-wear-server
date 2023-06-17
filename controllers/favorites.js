@@ -52,14 +52,15 @@ export const deleteFavorite = async (request, response) => {
 
 export const getFavorites = async (request, response) => {
   const { token } = request.cookies
-
   try {
     jwt.verify(token, process.env.JWT_SECRET, {}, async (error, userData) => {
-      if (error) throw error
-
-      response.json(
-        await Favorite.find({ owner: userData.id }).populate('product')
-      )
+      if (error) {
+        response.status(403).json('')
+      } else {
+        response.json(
+          await Favorite.find({ owner: userData.id }).populate('product')
+        )
+      }
     })
   } catch (error) {
     response.status(404).json('error')

@@ -25,6 +25,7 @@ import {
   deleteFavorite,
   getFavorites,
 } from '../controllers/favorites.js'
+import { searchProducts } from '../controllers/searchProducts.js'
 
 const router = Router()
 
@@ -40,6 +41,8 @@ router.get('/user-products', allAccommodations)
 router.get('/user-products/:id', getAccommodationId)
 router.put('/user-products', editAccommodation)
 router.delete('/user-products/:id', deleteAccommodation)
+
+router.get('/search-products', searchProducts)
 
 router.post('/product-photo-link', productPhotoLink)
 router.post(

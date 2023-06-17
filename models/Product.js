@@ -18,7 +18,6 @@ const productSchema = new Schema(
     description: String,
     state: String,
     delivery: String,
-    favorite: { type: Boolean, default: false },
     city: String,
   },
   {
