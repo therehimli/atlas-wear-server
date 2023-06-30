@@ -1,7 +1,11 @@
 import { Router } from 'express'
 import multer from 'multer'
 
-import { allProducts, oneProduct } from '../controllers/products.js'
+import {
+  allProducts,
+  getSimilarProducts,
+  oneProduct,
+} from '../controllers/products.js'
 import {
   allAccommodations,
   editAccommodation,
@@ -35,6 +39,7 @@ const productPhotosMiddleware = multer({
 
 router.get('/products', allProducts)
 router.get('/products/:id', oneProduct)
+router.get('/similar-products/:category', getSimilarProducts)
 
 router.post('/user-products', createAccommodation)
 router.get('/user-products', allAccommodations)

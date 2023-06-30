@@ -23,6 +23,17 @@ export const oneProduct = async (request, response) => {
       .exec()
     response.json(doc)
   } catch (error) {
-    response.status(404).json('error')
+    response.status(404).json(error)
+  }
+}
+
+export const getSimilarProducts = async (request, response) => {
+  const { category } = request.params
+
+  try {
+    const doc = await Product.find({ category })
+    response.status(202).json(doc)
+  } catch (error) {
+    response.json(error)
   }
 }
